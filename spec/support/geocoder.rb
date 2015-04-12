@@ -1,77 +1,27 @@
 Geocoder.configure(lookup: :test)
 
-Geocoder::Lookup::Test.add_stub(
-  'Lincoln Center for the Performing Arts, 30 Lincoln Center Plaza, New York, NY 10023', [
-    { 'latitude'     => 40.772748,
-      'longitude'    => -73.98384759999,
-      'address'      => '30 Lincoln Center Plaza, New York, NY 10023',
-      'state'        => 'New York',
-      'state_code'   => 'NY',
-      'country'      => 'United States',
-      'country_code' => 'US'
-    }
-  ]
-)
-Geocoder::Lookup::Test.add_stub(
-  '30 Lincoln Center Plaza, New York, NY 10023', [
-    { 'latitude'     => 40.772748,
-      'longitude'    => -73.98384759999,
-      'address'      => '30 Lincoln Center Plaza, New York, NY 10023',
-      'state'        => 'New York',
-      'state_code'   => 'NY',
-      'country'      => 'United States',
-      'country_code' => 'US'
-    }
-  ]
-)
+module Locations
+  DATA_PATH = Pathname.new('spec/data')
+  TEST_DATA = YAML.load(File.read(DATA_PATH.join('geocoder_data.yaml')))
 
-Geocoder::Lookup::Test.add_stub(
-  '1000 5th Ave, New York, NY 10028', [
-    { 'latitude'     => 40.77916555,
-      'longitude'    => -73.9629278,
-      'address'      => '1000 5th Ave, New York, NY 10028',
-      'state'        => 'New York',
-      'state_code'   => 'NY',
-      'country'      => 'United States',
-      'country_code' => 'US'
-    }
-  ]
-)
-Geocoder::Lookup::Test.add_stub(
-  '1000 5th Avenue, New York, NY 10028', [
-    { 'latitude'     => 40.7791655,
-      'longitude'    => -73.9629278,
-      'address'      => '1000 5th Ave, New York, NY 10028',
-      'state'        => 'New York',
-      'state_code'   => 'NY',
-      'country'      => 'United States',
-      'country_code' => 'US'
-    }
-  ]
-)
+  TEST_DATA.each do |location, data|
+    define_method location do
+      OpenStruct.new(data.merge(coords: [data['latitude'], data['longitude']]))
+    end
+  end
+end
 
-Geocoder::Lookup::Test.add_stub(
-  '1001 5th Avenue, New York, NY 10028', [
-    { 'latitude'     => 40.7785889,
-      'longitude'    => -73.9621559,
-      'address'      => '1000 5th Ave, New York, NY 10028',
-      'state'        => 'New York',
-      'state_code'   => 'NY',
-      'country'      => 'United States',
-      'country_code' => 'US'
-    }
-  ]
-)
-
-Geocoder::Lookup::Test.add_stub(
-  '1002 5th Avenue, New York, NY 10028', [
-    { 'latitude'     => 40.7785016,
-      'longitude'    => -73.9625847,
-      'address'      => '1002 5th Ave, New York, NY 10028',
-      'state'        => 'New York',
-      'state_code'   => 'NY',
-      'country'      => 'United States',
-      'country_code' => 'US'
-    }
-  ]
-)
+Locations::TEST_DATA.values.each do |location|
+  Geocoder::Lookup::Test.add_stub(
+    location['address'], [
+      { 'latitude'     => location['latitude'],
+        'longitude'    => location['longitude'],
+        'address'      => location['canonical_address'],
+        'state'        => location['state'],
+        'state_code'   => location['state_code'],
+        'country'      => location['country'],
+        'country_code' => location['country_code']
+      }
+    ]
+  )
+end

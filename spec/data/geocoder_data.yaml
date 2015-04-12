@@ -1,0 +1,89 @@
+met_opera_long:
+  address: 'Lincoln Center for the Performing Arts, 30 Lincoln Center Plaza, New York, NY 10023'
+  latitude: 40.772748
+  longitude: -73.98384759999
+  canonical_address: '30 Lincoln Center Plaza, New York, NY 10023'
+  state: 'New York'
+  state_code: 'NY'
+  country: 'United States'
+  country_code: 'US'
+
+met_opera_short:
+  address: '30 Lincoln Center Plaza, New York, NY 10023'
+  latitude: 40.772748
+  longitude: -73.98384759999
+  canonical_address: '30 Lincoln Center Plaza, New York, NY 10023'
+  state: 'New York'
+  state_code: 'NY'
+  country: 'United States'
+  country_code: 'US'
+
+met_art_ave:
+  address: '1000 5th Ave, New York, NY 10028'
+  latitude: 40.77916555
+  longitude: -73.9629278
+  canonical_address: '1000 5th Ave, New York, NY 10028'
+  state: 'New York'
+  state_code: 'NY'
+  country: 'United States'
+  country_code: 'US'
+
+met_art_avenue:
+  address: '1000 5th Avenue, New York, NY 10028'
+  latitude: 40.7791655
+  longitude: -73.9629278
+  canonical_address: '1000 5th Ave, New York, NY 10028'
+  state: 'New York'
+  state_code: 'NY'
+  country: 'United States'
+  country_code: 'US'
+
+apartments_1001:
+  address: '1001 5th Avenue, New York, NY 10028'
+  latitude: 40.7785889
+  longitude: -73.9621559
+  canonical_address: '1000 5th Ave, New York, NY 10028'
+  state: 'New York'
+  state_code: 'NY'
+  country: 'United States'
+  country_code: 'US'
+
+met_next_door:
+  address: '1002 5th Avenue, New York, NY 10028'
+  latitude: 40.7785016
+  longitude: -73.9625847
+  canonical_address: '1002 5th Ave, New York, NY 10028'
+  state: 'New York'
+  state_code: 'NY'
+  country: 'United States'
+  country_code: 'US'
+
+symphony_hall:
+  address: '301 Massachusetts Ave, Boston, MA 02115'
+  latitude: 42.3426
+  longitude: -71.0858
+  canonical_address: '301 Massachusetts Ave, Boston, MA 02115'
+  state: 'Massachusetts'
+  state_code: 'MA'
+  country: 'United States'
+  country_code: 'US'
+
+nec:
+  address: '290 Huntington Ave, Boston, MA 02115'
+  latitude: 42.3406
+  longitude: -71.0869
+  canonical_address: '290 Huntington Ave, Boston, MA 02115'
+  state: 'Massachusetts'
+  state_code: 'MA'
+  country: 'United States'
+  country_code: 'US'
+
+boco:
+  address: '8 Fenway, Boston, MA 02215'
+  latitude: 42.3462
+  longitude: -71.0901
+  canonical_address: '8 Fenway, Boston, MA 02215'
+  state: 'Massachusetts'
+  state_code: 'MA'
+  country: 'United States'
+  country_code: 'US'
