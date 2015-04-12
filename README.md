@@ -8,6 +8,32 @@ the excellent [geocoder gem](https://github.com/alexreisner/geocoder) to make a
 more educated guess by comparing lat/long of two addresses and returning `true`
 if they are close enough.
 
+## Usage
+
+`$ gem install address_matcher`
+
+`require address_matcher`
+
+Create an `AddressLibrary` with all of the "known" address strings that you want
+to match against:
+
+```ruby
+addresses = ['30 Lincoln Center Plaza, New York, NY 10023',
+            '1000 5th Ave, New York, NY 10028',
+            '1001 5th Avenue, New York, NY 10028',
+            '1002 5th Avenue, New York, NY 10028'
+            ]
+
+library = AddressLibrary.build(addresses)
+```
+
+Then simply call `match` to find the closest matching address:
+
+```ruby
+library.match('1000 5th Avenue, New York, NY 10028')
+#=> 1000 5th Ave, New York, NY 10028
+```
+
 ## License
 ### MIT
 

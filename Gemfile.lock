@@ -3,7 +3,6 @@ PATH
   specs:
     address-matcher (0.0.1)
       geocoder (~> 1.2)
-      rbtree (~> 0.4)
 
 GEM
   remote: http://rubygems.org/
@@ -19,7 +18,6 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rake (10.4.2)
-    rbtree (0.4.2)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
       rspec-expectations (~> 3.2.0)
