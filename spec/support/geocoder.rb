@@ -9,6 +9,10 @@ module Locations
       OpenStruct.new(data.merge(coords: [data['latitude'], data['longitude']]))
     end
   end
+
+  define_method :not_found do
+    OpenStruct.new(address: '123 Main St. Mars')
+  end
 end
 
 Locations::TEST_DATA.values.each do |location|
@@ -25,3 +29,5 @@ Locations::TEST_DATA.values.each do |location|
     ]
   )
 end
+
+Geocoder::Lookup::Test.add_stub('123 Main St. Mars', [])

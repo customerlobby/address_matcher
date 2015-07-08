@@ -24,6 +24,12 @@ describe AddressLibrary do
     )
   end
 
+  it 'does not add an address if the geocode does not return coordinates' do
+    expect do
+      AddressLibrary.new.add_address(not_found.address)
+    end.not_to raise_error
+  end
+
   it 'adds multiple nearby addresses to the same AddressGroup' do
     lib = AddressLibrary.new
                         .add_address(met_art_avenue.address)
@@ -119,6 +125,22 @@ describe AddressLibrary do
 
       expect(match_1).to eq met_art_ave.address
       expect(match_2).to eq met_opera_short.address
+    end
+
+    it 'returns nil if there are no addresses near enough to match' do
+      lib = AddressLibrary.new.add_address(met_opera_short.address)
+
+      match = lib.match(boco.address)
+
+      expect(match).to be_nil
+    end
+
+    it 'returns nil if the address cannot geocode' do
+      lib = AddressLibrary.new.add_address(met_opera_short.address)
+
+      match = lib.match(not_found.address)
+
+      expect(match).to be_nil
     end
   end
 end

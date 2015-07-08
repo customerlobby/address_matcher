@@ -15,7 +15,9 @@ class AddressLibrary
 
   def add_address(address_string)
     coords = geocode(address_string)
-    store[latitude_index(coords)][longitude_index(coords)][coords] = address_string
+    if coords
+      store[latitude_index(coords)][longitude_index(coords)][coords] = address_string
+    end
     self
   end
 
@@ -25,17 +27,20 @@ class AddressLibrary
 
   def match(address_string)
     coords = geocode(address_string)
-    group = store[latitude_index(coords)][longitude_index(coords)]
-    group.match(coords)
+    if coords
+      group = store[latitude_index(coords)][longitude_index(coords)]
+      group.match(coords)
+    end
   end
 
   private
   attr_reader :store
 
   def geocode(address_string)
-    Geocoder.search(address_string)
-            .first
-            .coordinates
+    response = Geocoder.search(address_string).first
+    if response
+      response.coordinates
+    end
   end
 
   def latitude_index(coords)
