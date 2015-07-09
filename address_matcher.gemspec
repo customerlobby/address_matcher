@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'address-matcher'
-  s.version     = '0.1.0'
+  s.version     = '0.1.1'
   s.date        = '2015-04-07'
   s.summary     = "Matches addresses by geocoding"
   s.description = "Uses geocoding to perform fuzzy match on address strings"
