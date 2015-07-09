@@ -10,9 +10,9 @@ if they are close enough.
 
 ## Usage
 
-`$ gem install address_matcher`
+`$ gem install address-matcher`
 
-`require address_matcher`
+`require address-matcher`
 
 Create an `AddressLibrary` with all of the "known" address strings that you want
 to match against:
