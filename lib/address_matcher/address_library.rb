@@ -28,8 +28,14 @@ class AddressLibrary
   def match(address_string)
     coords = geocode(address_string)
     if coords
-      group = store[latitude_index(coords)][longitude_index(coords)]
-      group.match(coords)
+      address_for_coords(coords)
+    end
+  end
+
+  def address_for_coords(lat_long)
+    unless lat_long.to_a.empty?
+      group = store[latitude_index(lat_long)][longitude_index(lat_long)]
+      group.match(lat_long)
     end
   end
 

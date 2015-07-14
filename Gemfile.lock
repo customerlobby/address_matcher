@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    address-matcher (0.0.1)
+    address-matcher (0.1.1)
       geocoder (~> 1.2)
 
 GEM

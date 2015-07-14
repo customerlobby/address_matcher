@@ -142,5 +142,39 @@ describe AddressLibrary do
 
       expect(match).to be_nil
     end
+
+    describe '#address_for_coords' do
+      it 'returns the address that is nearest the given coordinates' do
+        lib = AddressLibrary.new.add_address(met_opera_short.address)
+
+        address = lib.address_for_coords(met_opera_long.coords)
+
+        expect(address).to eq met_opera_short.address
+      end
+
+      it 'returns nil if there are no addresses near enough to match' do
+        lib = AddressLibrary.new.add_address(met_opera_short.address)
+
+        address = lib.address_for_coords(boco.coords)
+
+        expect(address).to be_nil
+      end
+
+      it 'returns nil if the coords are nil' do
+        lib = AddressLibrary.new.add_address(met_opera_short.address)
+
+        address = lib.address_for_coords(nil)
+
+        expect(address).to be_nil
+      end
+
+      it 'returns nil if the coords are empty' do
+        lib = AddressLibrary.new.add_address(met_opera_short.address)
+
+        address = lib.address_for_coords([])
+
+        expect(address).to be_nil
+      end
+    end
   end
 end
